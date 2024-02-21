@@ -17,10 +17,16 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/{path?}', [
-    'uses' => function () {
-        return view('index');
-    },
-    'as' => 'react',
-    'where' => ['path' => '.*']
-]);
+// Route::get('/{path?}', [
+//     'uses' => function () {
+//         return view('index');
+//     },
+//     'as' => 'react',
+//     'where' => ['path' => '.*']
+// ]);
+
+// Route::get('/', function () { return 'test-docker'; });
+
+Route::fallback(function () {
+    return view('index');
+});

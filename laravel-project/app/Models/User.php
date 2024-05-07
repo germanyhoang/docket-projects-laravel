@@ -42,4 +42,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    
+    public function billForProducts(): HasMany
+    {
+        return $this->hasMany(BillForProduct::class);
+    }
+
+    public function cart(): HasOne{
+        return $this->hasOne(Cart::class);
+    }
+
+    public function personalAccessTokens(): HasMany{
+        return $this->hasMany(PersonalAccessToken::class, 'tokenable_id');
+    }
+
+    public function billForTours(): HasMany{
+        return $this->hasMany(BillForTour::class);
+    }
 }

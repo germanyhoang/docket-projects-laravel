@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class FailedJob extends Model
 {
     use HasFactory;
-    protected $fillable = ['id','title','content','thumbnail_image','created_at','update_at'];
+
+    protected $fillable = ['id','uuid','connection','queue','payload','exception','failed_at'];
 }

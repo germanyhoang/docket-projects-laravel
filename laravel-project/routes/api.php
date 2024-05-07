@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,8 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("users", function () {
     return response()->json([
-        'name' => 'Le Hoang Cau',
+        'name' => 'Hoang Trung Duc',
         'message' => 'CREATE SUCCESS',
         'status' => 201
     ], 201);
 });
+Route::get("posts",[Controllers\PostController::class,'index']);
+

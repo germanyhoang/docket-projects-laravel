@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             RoomRole::class,
             RoleResident::class,
             HotelRating::class,
+            UserRole::class,
         ]);
         // \App\Models\User::factory(10)->create();
 

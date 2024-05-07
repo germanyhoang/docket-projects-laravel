@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('name');
             $table->text('address');
             $table->timestamps();
-            $table->foreignId('city_role_id')->reference('id')->on('city_role');
+            $table->foreignId('city_role_id')->references('id')->on('city_role');
         });
         Schema::create('tour_bus_stations', function (Blueprint $table) {
             $table->id();

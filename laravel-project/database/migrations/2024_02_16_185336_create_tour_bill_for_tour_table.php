@@ -28,14 +28,14 @@ return new class extends Migration
             $table->string('thumbnail_image');
             $table->timestamps();
             $table->foreignId('role_resident_id')->references('id')->on('role_resident');
-            $table->foreignId('hotel_rating_id')->references('id')->on('hotel_rating');
+            $table->foreignId('hotel_rating_id')->references('id')->on('hotel_rating')->nullable();
         });
         Schema::create('tour_guides', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->integer('age');
             $table->text('description');
-            $table->bigInteger('price');
+            // $table->bigInteger('price');
             $table->timestamps();
         });
         Schema::create('period_role', function (Blueprint $table) {
@@ -51,19 +51,21 @@ return new class extends Migration
             $table->bigInteger('price');
             // $table->integer('period_role_id');
             $table->text('post_content');
+            $tablet->dated('departure_day');
             $table->timestamps();
             $table->foreignId('transportation_method_id')->references('id')->on('transportation_methods');
             $table->foreignId('resident_id')->references('id')->on('residents');
             $table->foreignId('tour_guide_id')->references('id')->on('tour_guides');
             $table->foreignId('period_role_id')->references('id')->on('period_role');
+        
         });
         Schema::create('tour_bill_for_tours', function (Blueprint $table) {
             $table->id();
             // $table->bigInteger('bill_for_tour_id');
             // $table->bigInteger('tour_id');
             $table->timestamps();
-            $table->foreignId('bill_for_tour_id')->reference('id')->on('bill_for_tours');
-            $table->foreignId('tour_id')->reference('id')->on('tours');
+            $table->foreignId('bill_for_tour_id')->references('id')->on('bill_for_tours');
+            $table->foreignId('tour_id')->references('id')->on('tours');
         });
     }
 

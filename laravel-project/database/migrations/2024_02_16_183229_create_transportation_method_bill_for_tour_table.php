@@ -18,7 +18,7 @@ return new class extends Migration
         Schema::create('bill_for_tours', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('total_price');
-            $table->bigInteger('tour_id');
+           
             // $table->bigInteger('user_id');
             // $table->integer('status_role');
             $table->timestamps();
